@@ -1,0 +1,48 @@
+Arguments: 
+  /Users/bkaney/.nvm/versions/node/v8.11.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add -D mocha
+
+PATH: 
+  /Users/bkaney/.nvm/versions/node/v8.11.0/bin:/Users/bkaney/Library/Python/3.6/bin:/Users/bkaney/.rbenv/shims:/Users/bkaney/.bin:/Users/bkaney/.rbenv/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.11.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "oplop-node",
+    "version": "1.0.0",
+    "description": "Oplop implementation in NodeJS",
+    "main": "index.js",
+    "author": "Brian Kaney",
+    "license": "MIT",
+    "private": false,
+     "engines": {
+      "node": ">= 8.11.0",
+      "yarn": ">= 1.7.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Found incompatible module
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at Object.checkOne (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:62444:11)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:22773:75
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:22777:27
