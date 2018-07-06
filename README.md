@@ -12,5 +12,7 @@ loplop('amazon', 'password');
 loplop('amazon', 'password', 10); // 10 character password
 ```
 
+[See JSDoc](https://vermonster.github.io/loplop/)
+
 ## License
 MIT
