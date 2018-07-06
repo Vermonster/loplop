@@ -9,6 +9,7 @@ Node implemention of Oplop, supporting long Oplop (loplop).
 const loplop = require('loplop');
 
 loplop('amazon', 'password');
+loplop('amazon', 'password', 10); // 10 character password
 ```
 
 ## License
