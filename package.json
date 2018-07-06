@@ -6,6 +6,7 @@
   "author": "Brian Kaney",
   "license": "MIT",
   "private": false,
+  "homepage": "https://vermonster.github.io/loplop/",
   "engines": {
     "node": ">= 8.11.0",
     "yarn": ">= 1.3.2"
