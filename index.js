@@ -65,7 +65,7 @@ function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
  *
  * @returns {string} the generated password
  */
-module.exports = function oplopNode(labelParam, masterParam, lengthParam) {
+module.exports = function (labelParam, masterParam, lengthParam) {
   const [label, length] = getLabelAndLength(labelParam, lengthParam);
 
   let password = crypto

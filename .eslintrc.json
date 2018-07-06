@@ -7,6 +7,7 @@
     "filenames"
   ],
   "rules": {
+    "func-names": ["error", "never"],
     "consistent-return": 0,
     "filenames/match-regex": [2, "^[a-z\\-]+$", true],
     "filenames/match-exported": [2, "kebab"],
