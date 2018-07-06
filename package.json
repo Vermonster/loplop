@@ -1,7 +1,7 @@
 {
-  "name": "oplop-node",
+  "name": "loplop",
   "version": "1.0.0",
-  "description": "Oplop implementation in NodeJS",
+  "description": "Oplop (+ long oplop) implementation in NodeJS",
   "main": "index.js",
   "author": "Brian Kaney",
   "license": "MIT",
