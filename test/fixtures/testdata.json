@@ -4,48 +4,55 @@
         "label": "a",
         "master": "a",
         "hash": "QSS8CpM1wn8IbyS6IHpJEg==",
-        "password": "QSS8CpM1"
+        "password": "QSS8CpM1",
+        "password16": "QSS8CpM1wn8IbyS6"
     },
     {
         "why": "hash has a digit in first 8 characters & label differs from master password",
         "label": "0",
         "master": "1",
         "hash": "09lEaAKkQll1XTjm0WPoIA==",
-        "password": "09lEaAKk"
+        "password": "09lEaAKk",
+        "password16": "09lEaAKkQll1XTjm"
     },
     {
         "why": "hash has a sequence of digits outside of first 8 chars",
         "label": "0",
         "master": "9",
         "hash": "hhOYXsSeuPdXrmQ56Hm7Kg==",
-        "password": "56hhOYXs"
+        "password": "56hhOYXs",
+        "password16": "hhOYXsSeuPdXrmQ5"
     },
     {
         "why": "hash has a lone digit outside of first 8 chars",
         "label": "0",
         "master": "7",
         "hash": "fLvECeyZDxnHjHW9HgbyFQ==",
-        "password": "9fLvECey"
+        "password": "9fLvECey",
+        "password16": "fLvECeyZDxnHjHW9"
     },
     {
         "why": "hash has no digits",
         "label": "0",
         "master": "0",
         "hash": "tLFHvFIoKHMfGgFr-nLAcw==",
-        "password": "1tLFHvFI"
+        "password": "1tLFHvFI",
+        "password16": "1tLFHvFIoKHMfGgF"
     },
     {
         "why": "master password w/ UTF-8 char",
         "label": "ü",
         "master": "0",
         "hash": "fHFfKQlvumngcWEWq7HCgg==",
-        "password": "7fHFfKQl"
+        "password": "7fHFfKQl",
+        "password16": "7fHFfKQlvumngcWE"
     },
     {
         "why": "mixed case, length greater than 1 for label and master",
         "label": "Aa",
         "master": "Bb",
         "hash": "pb3iGMs2S-VgWAX1kElklg==",
-        "password": "pb3iGMs2"
+        "password": "pb3iGMs2",
+        "password16": "pb3iGMs2S-VgWAX1"
     }
 ]

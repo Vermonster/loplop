@@ -1,25 +1,53 @@
 const base64url = require('base64-url');
-const md5 = require('md5');
-const utf8 = require('utf8');
 const crypto = require('crypto');
 
-module.exports = function(label, master, length=16) {
-  var created_password = crypto.createHash('md5').update(master + label, 'utf8');
-  created_password = base64url.encode(created_password.digest('base64'));
+const lengthLegacy = 8;
+const lengthDefault = 16;
 
-  return created_password;
+/**
+ * Function to parse label DSL for length.
+ *
+ * The DSL uses the long oplop variation, where:
+ *
+ * If the label begins with a `<digit>*`, the <digit> should be the length of
+ * the password. If the label begins with a `*`, the lenght of the password is
+ * assumed the classic length of 8. Otherwise the password will be 16
+ * characters long.
+ *
+ * @private
+ */
+function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
+  let label = labelParam;
+  let length = lengthParam;
 
-  var digit_regex = /\d+/;
-  var digit_pos = created_password.search(digit_regex);
-
-  if (digit_pos < 0) {  // No digit found.
-    created_password = '1' + created_password;
+  if (label.match(/^([0-9]*)?\*/)) {
+    let rest;
+    [length, ...rest] = label.split('*');
+    label = rest.join('*');
+    length = parseInt(length, 10) || lengthLegacy;
   }
-  else if (digit_pos >= length) {  // Digit outside of final password.
-    var digit = created_password.match(digit_regex);
-    created_password = digit + created_password;
+  return [label, length];
+}
+
+module.exports = function oplopNode(labelParam, masterParam, lengthParam) {
+  const [label, length] = getLabelAndLength(labelParam, lengthParam);
+
+  let password = crypto
+    .createHash('md5')
+    .update(masterParam + label, 'utf8')
+    .digest('base64');
+
+  password = base64url.escape(password);
+
+  const digitRegex = /\d+/;
+  const digitPos = password.search(digitRegex);
+
+  if (digitPos < 0) {
+    password = `1${password}`;
+  } else if (digitPos >= length) {
+    const digit = password.match(digitRegex);
+    password = `${digit}${password}`;
   }
 
-  return created_password.substring(0, length);
+  return password.substring(0, length);
 };
-
