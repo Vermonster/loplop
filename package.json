@@ -12,7 +12,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha test --reporter spec"
+    "test": "mocha test --reporter spec",
+    "docs": "rm -rf ./docs && jsdoc --configure .jsdoc.json"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -20,12 +21,12 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.13.0",
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3",
     "mocha": "^5.2.0"
   },
   "dependencies": {
     "base64-url": "^2.2.0",
-    "crypto": "^1.0.1",
-    "md5": "^2.2.1",
-    "utf8": "^3.0.0"
+    "crypto": "^1.0.1"
   }
 }
