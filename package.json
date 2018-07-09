@@ -1,6 +1,6 @@
 {
   "name": "loplop",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Loplop (long oplop) implementation in NodeJS",
   "main": "index.js",
   "author": "Brian Kaney",
