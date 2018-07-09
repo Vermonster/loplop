@@ -1,5 +1,5 @@
 const base64url = require('base64-url');
-const crypto = require('crypto');
+const crypto = require('crypto-js');
 
 const lengthLegacy = 8;
 const lengthDefault = 16;
@@ -68,12 +68,8 @@ function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
 module.exports = function (labelParam, masterParam, lengthParam) {
   const [label, length] = getLabelAndLength(labelParam, lengthParam);
 
-  let password = crypto
-    .createHash('md5')
-    .update(`${masterParam}${label}`, 'utf8')
-    .digest('base64');
-
-  password = base64url.escape(password);
+  let password = crypto.MD5(`${masterParam}${label}`);
+  password = base64url.escape(password.toString(crypto.enc.Base64));
 
   const digitRegex = /\d+/;
   const digitPos = password.search(digitRegex);
