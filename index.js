@@ -20,18 +20,16 @@ function getLabelAndLength(labelParam, lengthParam) {
 
   if (length) {
     return [label, length];
-
-  } else {
-    length = lengthDefault;
-
-    if (label.match(/^([0-9]*)?\*/)) {
-      let rest;
-      [length, ...rest] = label.split('*');
-      label = rest.join('*');
-      length = parseInt(length, 10) || lengthLegacy;
-    }
-    return [label, length];
   }
+  length = lengthDefault;
+
+  if (label.match(/^([0-9]*)?\*/)) {
+    let rest;
+    [length, ...rest] = label.split('*');
+    label = rest.join('*');
+    length = parseInt(length, 10) || lengthLegacy;
+  }
+  return [label, length];
 }
 
 /**
