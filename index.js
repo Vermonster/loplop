@@ -14,9 +14,14 @@ const lengthDefault = 16;
  *
  * @returns {array} array of label and length
  */
-function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
+function getLabelAndLength(labelParam, lengthParam) {
   let label = labelParam;
   let length = lengthParam;
+
+  if (length) {
+    return [label, length];
+  }
+  length = lengthDefault;
 
   if (label.match(/^([0-9]*)?\*/)) {
     let rest;
@@ -38,12 +43,13 @@ function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
  * Create a password given a label/mnemonic and master password and optional
  * length.
  *
- * NOTE this library supports the "loplop" variation where the label can use an
- * optional DSL uses the long oplop variation, where:
+ * NOTE Unless length is explicitly passed as the third parameter, this library
+ * uses the "loplop" variation where the label can use an optional DSL:
+ *
  * * if the label begins with a `<digit>*`, the <digit> should be the length of
- * the password,
- * * if the label begins with a `*`, the length of the password is
- * assumed the classic length of 8,
+ *   the password,
+ * * if the label begins with a `*`, the length of the password is assumed the
+ *   classic length of 8,
  * * otherwise the password will be 16 characters long.
  *
  * @example
