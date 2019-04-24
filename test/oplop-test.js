@@ -21,6 +21,8 @@ describe('oplopNode', function () {
 
       it(`creates password passing in length for ${dataElement.why}`, function () {
         expect(oplop(dataElement.label, dataElement.master, 8)).to.equal(dataElement.password);
+        expect(oplop(`*${dataElement.label}`, dataElement.master, 8)).to.not.equal(dataElement.password);
+        expect(oplop(`8*${dataElement.label}`, dataElement.master, 8)).to.not.equal(dataElement.password);
       });
     });
   });

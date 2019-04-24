@@ -14,17 +14,24 @@ const lengthDefault = 16;
  *
  * @returns {array} array of label and length
  */
-function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
+function getLabelAndLength(labelParam, lengthParam) {
   let label = labelParam;
   let length = lengthParam;
 
-  if (label.match(/^([0-9]*)?\*/)) {
-    let rest;
-    [length, ...rest] = label.split('*');
-    label = rest.join('*');
-    length = parseInt(length, 10) || lengthLegacy;
+  if (length) {
+    return [label, length];
+
+  } else {
+    length = lengthDefault;
+
+    if (label.match(/^([0-9]*)?\*/)) {
+      let rest;
+      [length, ...rest] = label.split('*');
+      label = rest.join('*');
+      length = parseInt(length, 10) || lengthLegacy;
+    }
+    return [label, length];
   }
-  return [label, length];
 }
 
 /**
@@ -39,11 +46,11 @@ function getLabelAndLength(labelParam, lengthParam = lengthDefault) {
  * length.
  *
  * NOTE this library supports the "loplop" variation where the label can use an
- * optional DSL uses the long oplop variation, where:
+ * optional DSL uses the long oplop variation, where _unless_ the length is specified:
  * * if the label begins with a `<digit>*`, the <digit> should be the length of
- * the password,
- * * if the label begins with a `*`, the length of the password is
- * assumed the classic length of 8,
+ *   the password,
+ * * if the label begins with a `*`, the length of the password is assumed the
+ *   classic length of 8,
  * * otherwise the password will be 16 characters long.
  *
  * @example
