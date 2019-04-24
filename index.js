@@ -45,8 +45,9 @@ function getLabelAndLength(labelParam, lengthParam) {
  * Create a password given a label/mnemonic and master password and optional
  * length.
  *
- * NOTE this library supports the "loplop" variation where the label can use an
- * optional DSL uses the long oplop variation, where _unless_ the length is specified:
+ * NOTE Unless length is explicitly passed as the third parameter, this library
+ * uses the "loplop" variation where the label can use an optional DSL:
+ *
  * * if the label begins with a `<digit>*`, the <digit> should be the length of
  *   the password,
  * * if the label begins with a `*`, the length of the password is assumed the
